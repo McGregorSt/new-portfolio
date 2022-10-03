@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/new-portfolio/static/media/samuri.c4689ecb.jpg"
   },
   {
-    "revision": "78a404469f08fea3b769f8a670242538",
+    "revision": "417c9cda41ba51c79d7e420a4c82b449",
     "url": "/new-portfolio/index.html"
   }
 ];
