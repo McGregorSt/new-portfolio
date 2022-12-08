@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components'
 
 const Wrapper = styled.div`
@@ -6,25 +6,20 @@ const Wrapper = styled.div`
 `
 
 const StyledContact = styled.div`
-  /* width: 240px; */
-  /* height: 120px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   font-size: 24px;
   font-weight: 100;
   text-align: center;
-  /* background-color: aliceblue; */
   cursor: pointer;
   position: fixed;
   bottom: -130px;
   right: -150px;
   transform: rotate(-45deg);
-  /* transition: bottom 2s, right 2s, font-size 2s; */
   transition-timing-function: ease-in-out;
   transition: 0.7s;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  /* border-radius: 15px; */
   background: linear-gradient(
     125deg,
     rgba(252, 143, 35, 0.55),
@@ -38,20 +33,10 @@ const StyledContact = styled.div`
   box-shadow: rgba(0, 0, 0, 0.76) 0px -12px 70px 4px;
 
   color: rgba(0, 0, 0, 0.99);
-  /* padding: 20px 0; */
-
-  /* &:hover {
-    bottom: -280px;
-    right: -280px;
-    font-size: 32px;
-  } */
   ${({ active }) =>
     active &&
     css`
       position: fixed;
-      /* background-color: aquamarine; */
-      /* width: 300px; */
-      /* height: 320px; */
       bottom: 0px;
       right: 0px;
       background: linear-gradient(
@@ -64,12 +49,6 @@ const StyledContact = styled.div`
       border-radius: 15px;
       transition-timing-function: ease-in;
       transition: 0.8s;
-
-      /* &:hover {
-        bottom: 280px;
-        right: 280px;
-        font-size: 32px;
-      } */
     `}
 `
 
@@ -87,15 +66,24 @@ const StyledContactTypes = styled.div`
 
 const StyledHeader = styled.div`
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 0.4fr 3fr;
+  padding: 0 10px;
 `
 
 const CloseBtn = styled.div`
-  /* align-self: flex-start; */
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 2px;
+  &:hover {
+    background: linear-gradient(
+      125deg,
+      rgba(252, 255, 255, 0.25),
+      rgba(252, 255, 255, 0.15)
+    );
+  }
 `
-// const StyledBackdrop = styled.div`
-//   background-color: rgba(0, 0, 0, 0.5);
-// `;
 
 const ContactDetails = () => {
   return (
@@ -120,18 +108,16 @@ const contactTypes = Object.entries(contacts).map(
         {`"${contactType}"`}: {`"${contactValue}"`},
       </StyledContactTypes>
     )
-    // return console.log(`${key} ${value}`);
   }
 )
 
 export const Contact = ({ active, handleActive }) => {
   return (
     <Wrapper>
-      <StyledContact active={active} onClick={() => handleActive()}>
+      <StyledContact active={active}>
         <StyledHeader>
-          {/* {active ? <CloseBtn>Cl</CloseBtn> : ''}  */}
-          <CloseBtn>Cl</CloseBtn> 
-          Contact
+          <CloseBtn onClick={handleActive}>X</CloseBtn>
+          <div onClick={() => handleActive()}>Contact</div>
         </StyledHeader>
         <ContactDetails />
       </StyledContact>

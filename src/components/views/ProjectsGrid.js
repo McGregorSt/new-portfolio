@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { oldProjects } from '../../data/projectsList'
+import { projects } from '../../data/projectsList'
 import { Contact } from '../Contact'
 import { GridTile } from '../GridTile'
 import { Project } from '../Project'
@@ -15,20 +15,8 @@ const StyledWrapper = styled.div`
   grid-gap: 40px;
   & :nth-child(1) {
     grid-template-rows: 2fr 1fr;
-    grid-column: 1 / 4;
+    grid-column: 1 / 5;
     grid-row: 1 / 3;
-  }
-  & :nth-child(2) {
-    /* grid-column: 4 / 4;
-    grid-row: 2 / 2; */
-  }
-  & :nth-child(6) {
-    grid-column: 3 / 3;
-    grid-row: 3 / 4;
-  }
-  & :nth-child(3) {
-    grid-column: 4 / 4;
-    grid-row: 3 / 3;
   }
   & :nth-child(1) {
     background: rgba(0, 0, 0, 0.7);
@@ -70,8 +58,7 @@ const StyledViewer = styled.div`
   border-radius: 10px;
 `
 
-const StyledButton = styled.div`
-`
+const StyledButton = styled.div``
 
 const StyledLink = styled.a`
   display: flex;
@@ -81,7 +68,6 @@ const StyledLink = styled.a`
   background: rgba(255, 255, 255, 0.03);
   text-decoration: none;
   backdrop-filter: blur(1px);
-  /* border: none; */
 `
 
 export const ProjectsGrid = ({ active, handleActive }) => {
@@ -91,6 +77,7 @@ export const ProjectsGrid = ({ active, handleActive }) => {
   const [link, setLink] = useState('')
 
   const handleClick = (project) => {
+    console.log(project)
     setShowOnViewer(project.description)
     typewriting(project.description, 1)
     setLink(project.link)
@@ -123,7 +110,7 @@ export const ProjectsGrid = ({ active, handleActive }) => {
           <StyledViewer>{showOnViewer}</StyledViewer>
           <>
             {endTypewriting && !startTypewriting ? (
-              <StyledLink href={link} target="_blank">
+              <StyledLink href={link} target='_blank'>
                 <StyledButton onClick={() => handleGoToBtn()}>
                   GO TO
                 </StyledButton>
@@ -133,8 +120,8 @@ export const ProjectsGrid = ({ active, handleActive }) => {
             )}
           </>
         </StyledGridTile>
-        {oldProjects.map((project, index) =>
-          index > 0 ? (
+        {projects.map((project, index) =>
+          index >= 0 ? (
             <Project
               key={Math.random()}
               project={project}

@@ -3,8 +3,6 @@ import styled from 'styled-components'
 export const GridTile = styled.div`
   display: grid;
   grid-template-rows: 3fr 1fr;
-  /* flex-direction: column;
-  justify-content: space-around; */
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 15px;
   padding: 30px 0 60px 0;

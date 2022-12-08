@@ -10,20 +10,18 @@ const StyledAppWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `
-const StyledDiv = styled.div``
-
 function App() {
   const [active, setActive] = useState(false)
 
   const handleActive = () => {
-    console.log('clip', active)
     setActive(!active)
+    console.log('on', active)
   }
 
   return (
-        <StyledAppWrapper>
-          <ProjectsGrid active={active} handleActive={handleActive} />
-        </StyledAppWrapper>
+    <StyledAppWrapper>
+      <ProjectsGrid active={active} handleActive={handleActive} />
+    </StyledAppWrapper>
   )
 }
 
