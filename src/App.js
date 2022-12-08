@@ -15,7 +15,6 @@ function App() {
 
   const handleActive = () => {
     setActive(!active)
-    console.log('on', active)
   }
 
   return (

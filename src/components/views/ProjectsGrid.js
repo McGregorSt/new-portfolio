@@ -77,11 +77,9 @@ export const ProjectsGrid = ({ active, handleActive }) => {
   const [link, setLink] = useState('')
 
   const handleClick = (project) => {
-    console.log(project)
     setShowOnViewer(project.description)
     typewriting(project.description, 1)
     setLink(project.link)
-    console.log(project.link)
   }
 
   const handleGoToBtn = () => {}
@@ -93,7 +91,6 @@ export const ProjectsGrid = ({ active, handleActive }) => {
         setShowOnViewer(text.substring(0, i + 1))
         i += 1
       } else {
-        console.log('end')
         setTimeout(() => {
           setStartTypewriting(false)
           setEndTypewriting(true)
